@@ -1,0 +1,61 @@
+<template name="request">
+	<div class="container">
+
+		<div class="jumbotron">
+			<h2>{{info}}</h2>
+			<p>
+				<a class="btn btn-primary btn-lg" href={{link}} role="button">返回</a>
+			</p>
+		</div>
+
+
+
+		<div class="row">
+
+			{{#if isAdmin}}
+			{{>controlPanel}}
+			{{/if}}
+
+			<div class="{{adminResize}}">
+
+				<div class="{{currentStageColor}}">
+					<div class="panel-heading">
+						<h3 class="panel-title">[{{currentStageText}}][{{requestType}}]</h3>
+					</div>
+					<div class="panel-body">
+						<p>{{content}}</p>
+						{{#if hasAttachment}}
+						<a href="{{attachmentURL}}">
+							附加文件
+						</a>
+						{{/if}}
+					</div>
+				</div>
+
+				{{#if isDone}}
+				<div class="panel panel-success">
+					<div class="panel-heading">
+						<h3 class="panel-title">成品</h3>
+					</div>
+					<div class="panel-body">
+						<p>備註: {{finalDocNote}}</p>
+						{{#if hasAttachment}}
+						<a href="{{finalDocURL}}" download>
+							成品下載
+						</a>
+						{{/if}}
+					</div>
+				</div>
+				{{/if}}
+
+
+			</div>
+
+		</div>
+
+		<div class="row">
+			{{>chats}}
+		</div>
+
+	</div>
+</template>

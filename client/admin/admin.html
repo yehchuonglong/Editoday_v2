@@ -1,0 +1,20 @@
+<template name="admin">
+	<div class="container">
+
+		{{>jumbotron}}
+
+		{{#each requests}}
+		<div class="{{stage}}">
+			<div class="panel-heading">
+				<h3 class="panel-title"><a href="/admin/{{userId}}/{{_id}}">[{{currentStageText}}][{{requestType}}]問題代碼: {{_id}}</a></h3>
+			</div>
+			<div class="panel-body">
+				<span style="white-space: pre-line">{{content}}</span>
+			</div>
+		</div>
+		{{/each}}
+
+	</div>
+
+
+</template>

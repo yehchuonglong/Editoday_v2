@@ -1,0 +1,3 @@
+Template.app.onRendered(function () {
+	
+});

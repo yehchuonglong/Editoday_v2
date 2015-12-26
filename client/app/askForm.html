@@ -1,0 +1,32 @@
+<template name="askForm">
+
+	<div id="askForm" class="panel panel-default collapse">
+		<div class="panel-body">
+			<form id="askFormContent">
+				<div class="form-group">
+					<label for="email">您的電子信箱:</label>
+					<input type="email" class="form-control" id="userEmail" name="userEmail" placeholder="電子信箱">
+				</div>
+				<div class="form-group">
+					<label for="service">服務項目:</label>
+					<select id="service" class="form-control">
+						<option value="1">英文校對</option>
+						<option value="2">中英翻譯</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="content">內容:</label>
+					<textarea type="text" id="userContent" name="userContent" class="form-control" rows="2"></textarea>
+				</div>
+				<div class="form-group">
+					<label for="file">文件:</label>
+					<input type="file" id="fileInput">
+				</div>
+
+				<button type="submit" id="submit" class="btn btn-default">發送</button>
+				<button type="submit" data-toggle="collapse" data-target="#askForm" id="close" class="btn btn-default">關閉</button>
+			</form>
+		</div>
+	</div>
+
+</template>

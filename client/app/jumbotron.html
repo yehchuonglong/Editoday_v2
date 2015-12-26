@@ -1,0 +1,176 @@
+<template name="jumbotron">
+
+	<div class="jumbotron">
+
+		<h2>{{greeting}}</h2>
+		<p>
+      {{#if notAdmin}}
+      <a id="ask" data-toggle="collapse" data-target="#askForm" class="btn btn-primary btn-lg" href="#" role="button">
+        <i class="fa fa-pencil-square-o"></i>
+        發問
+      </a>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary btn-lg btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-usd"></i>
+          {{amount}} <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="#" data-toggle="modal" data-target="#buyTokenModal">充值</a></li>
+        </ul>
+      </div>
+      {{/if}}
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary btn-lg btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-sticky-note-o"></i>
+          價表 <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="#" data-toggle="modal" data-target="#translatePricingModal">中英翻譯</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#proofreadPricingModal">英文校對</a></li>
+        </ul>
+      </div>
+      
+      <a id="logout" class="btn btn-primary btn-lg" href="#" role="button">
+        <i class="fa fa-sign-out"></i>
+        登出
+      </a>
+    </p>
+
+  </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="buyTokenModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="ModalLabel">馬上充值</h4>
+        </div>
+        <div class="modal-body">
+
+          <form class="form-horizontal" id="buyTokenForm">
+            <div class="form-group">
+              <label for="amount" class="col-sm-2 control-label">目前餘額:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="amount" placeholder="{{amount}}美元" disabled>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="amountAdd" class="col-sm-2 control-label">加值金額:</label>
+              <div class="col-sm-10">
+                <div class="input-group">
+
+                  <input type="text" class="form-control" id="amountAdd" name="amountAdd" placeholder="金額為整數美金">
+
+                </div>
+              </div>
+            </div>
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+          <button type="button" id="buyToken" class="btn btn-primary">加值</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="proofreadPricingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">價目表: 英文教對</h4>
+        </div>
+        <div class="modal-body">
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>情況</th>
+                <th>價錢</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0-500字</td>
+                <td>6美元</td>
+              </tr>
+              <tr>
+                <td>500-1000字</td>
+                <td>10美元</td>
+              </tr>
+              <tr>
+                <td>1000字以上</td>
+                <td>9美元/1000字</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>*超過5000字校對服務的價錢可以依情況再折扣</p>
+          <p>*24小時內完成服務需另外加上10美元費用</p>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="translatePricingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">價目表: 中英翻譯</h4>
+        </div>
+        <div class="modal-body">
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>情況</th>
+                <th>價錢</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0-200字</td>
+                <td>6美元</td>
+              </tr>
+              <tr>
+                <td>200-500字</td>
+                <td>10美元</td>
+              </tr>
+              <tr>
+                <td>500-1000字</td>
+                <td>15美元</td>
+              </tr>
+              <tr>
+                <td>1000字以上</td>
+                <td>8美元/500字</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>*超過4000字的話,價錢可以依照情況再折扣</p>
+          <p>*24小時內完成服務需另外加上10美元費用</p>
+          <p>*目前只有500字以下的翻譯提供24小時內完成服務</p>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>

@@ -1,0 +1,18 @@
+<template name="panel">
+
+	<div class="alert alert-danger alert-dismissible collapse" role="alert" id="tooMuchRequestAlert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<strong>太多提問了</strong> 請先讓我們處理前面幾個提問吧 :)
+	</div>
+
+	{{#each requests}}
+	<div class="{{stage}}">
+		<div class="panel-heading">
+			<h3 class="panel-title"><a href="/app/{{userId}}/{{_id}}">[{{currentStageText}}][{{requestType}}]</a></h3>
+		</div>
+		<div class="panel-body">
+			<span style="white-space: pre-line">{{content}}</span>
+		</div>
+	</div>
+	{{/each}}
+</template>

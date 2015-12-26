@@ -1,0 +1,26 @@
+<template name="chats">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-body">
+
+				{{#each chats}}
+				{{setproperName}} <span style="white-space: pre-line">{{content}}</span>
+				<hr>
+
+				{{/each}}
+
+				<form>
+					<div class="form-group">
+						<textarea class="form-control" id="chatContent" placeholder="補充訊息" rows="3"></textarea>
+					</div>
+					<button type="submit" id="ask" class="btn btn-default">送出</button>
+				</form>
+
+			</div>
+		</div>
+
+	</div>
+
+
+
+</template>

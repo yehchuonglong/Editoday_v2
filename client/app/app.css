@@ -1,0 +1,9 @@
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+.logo {
+	width: 25%;
+	margin-left: 5px;
+}
